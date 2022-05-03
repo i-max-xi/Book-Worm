@@ -1,6 +1,6 @@
 import React from "react";
-import BookList from "./Books/BookList";
-import InputBook from "./Books/InputBook";
+import BookList from "./BookList";
+import InputBook from "./InputBook";
 
 class Books extends React.Component {
   state = {
@@ -19,6 +19,7 @@ class Books extends React.Component {
   };
 
   render() {
+
     return (
       <React.Fragment>
         <BookList book={this.state.book} />

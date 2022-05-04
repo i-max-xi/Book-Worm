@@ -1,13 +1,11 @@
-export const checkStatus = () => {
-  return {
-    type: "CHECKSTATUS",
-  };
-};
+export const checkStatus = () => ({
+  type: 'CHECKSTATUS',
+});
 
 const categoryReducer = (state = [], action) => {
   switch (action.type) {
-    case "CHECKSTATUS":
-      return "Under Construction";
+    case 'CHECKSTATUS':
+      return 'Under Construction';
 
     default:
       return state;

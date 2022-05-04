@@ -4,7 +4,7 @@ import Book from "./Book";
 const BookList = (props) => {
   return (
     <React.Fragment>
-      <Book book = {props.book}/>
+      <Book book={props.book} />
       <button>Comments</button>
       <button>Remove</button>
       <button>Edit</button>

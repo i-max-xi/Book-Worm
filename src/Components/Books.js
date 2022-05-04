@@ -19,7 +19,6 @@ class Books extends React.Component {
   };
 
   render() {
-
     return (
       <React.Fragment>
         <BookList book={this.state.book} />

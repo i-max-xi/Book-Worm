@@ -5,12 +5,12 @@ import Categories from './Components/Categories';
 import NavBar from './pages/NavBar';
 
 const App = () => (
-    <Router>
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<Books />} />
-        <Route path="/categories" element={<Categories />} />
-      </Routes>
-    </Router>
-  );
+  <Router>
+    <NavBar />
+    <Routes>
+      <Route path="/" element={<Books />} />
+      <Route path="/categories" element={<Categories />} />
+    </Routes>
+  </Router>
+);
 export default App;

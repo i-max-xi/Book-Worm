@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment, useState } from 'react';
 import BookList from './BookList';
 import InputBook from './InputBook';
 
@@ -15,16 +15,18 @@ class Books extends React.Component {
         {
           id: 2,
           title: 'Dune',
-          author: 'Author1',
+          author: 'Author2',
         },
       ],
     };
   }
 
   render() {
+    let [book, setBook] = useState("");
+
     return (
       <Fragment>
-        <BookList book={this.state.book} />
+        <BookList book={book} />
         <InputBook />
       </Fragment>
     );

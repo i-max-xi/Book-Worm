@@ -1,15 +1,15 @@
 import React from 'react';
 import Book from './Book';
 
-const BookList = (props) => {
+const BookList = ({book}) => {
+  
   return (
-    <React.Fragment>
-      <Book book={props.book} />
-      <button>Comments</button>
-      <button>Remove</button>
-      <button>Edit</button>
-    </React.Fragment>
-  );
-};
-
+  <Fragment>
+    <Book book={book} />
+    <button type='button'>Comments</button>
+    <button type='button'>Remove</button>
+    <button type='button'>Edit</button>
+  </Fragment>
+);
+  }
 export default BookList;

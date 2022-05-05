@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Book = (props) => {
+const Book = ({book}) => {
   return (
     <React.Fragment>
-      <h1>{props.book.title}</h1>
-      <h3>{props.book.author}</h3>
+      <h1>{book.title}</h1>
+      <h3>{book.author}</h3>
     </React.Fragment>
   );
 };

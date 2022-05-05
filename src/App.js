@@ -4,8 +4,7 @@ import Books from './Components/Books';
 import Categories from './Components/Categories';
 import NavBar from './pages/NavBar';
 
-const App = () => {
-  return (
+const App = () => (
     <Router>
       <NavBar />
       <Routes>
@@ -14,5 +13,4 @@ const App = () => {
       </Routes>
     </Router>
   );
-};
 export default App;

@@ -1,36 +1,34 @@
 import React, { Fragment, useState } from 'react';
+import Book from './Book';
 import BookList from './BookList';
 import InputBook from './InputBook';
 
 class Books extends React.Component {
-  constructor(props) {
-    super(props);
+
     state = {
-      book: [
+      books: [
         {
           id: 1,
-          title: 'The Hunger Games',
-          author: 'Author1',
+          title: "The Hunger Games",
+          author: "Author1",
         },
         {
           id: 2,
-          title: 'Dune',
-          author: 'Author2',
+          title: "Dune",
+          author: "Author2",
         },
       ],
     };
-  }
-
-  render() {
-    let [book, setBook] = useState("");
-
-    return (
-      <Fragment>
-        <BookList book={book} />
+  
+    render(){
+      return (
+        <Fragment>
+        <BookList books={this.state.books} />
         <InputBook />
-      </Fragment>
-    );
-  }
+        </Fragment>
+      );
+    }
+    
 }
 
 export default Books;

@@ -1,15 +1,19 @@
 import React from 'react';
 import Book from './Book';
 
-const BookList = ({book}) => {
+const BookList = (props) => {
   
   return (
-  <Fragment>
-    <Book book={book} />
-    <button type='button'>Comments</button>
-    <button type='button'>Remove</button>
-    <button type='button'>Edit</button>
-  </Fragment>
+  <React.Fragment>
+ <ul>
+      {props.books.map((book) => (
+          <Book
+          key={book.id}
+          book={book}
+        />
+        ))}
+      </ul>
+  </React.Fragment>
 );
   }
 export default BookList;

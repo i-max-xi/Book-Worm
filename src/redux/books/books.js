@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
 const initialState = {
   items: [],
@@ -9,10 +9,10 @@ const bookSlice = createSlice({
   name: "book",
   initialState,
   reducers: {
-    AddBook: (state) => {
+    AddBook: (state, action) => {
       const newBook = action.payload;
       const existingBook = state.items.find(
-        (book) => book.title === newBook.title
+        (book) => book.title === newBook.title,
       );
       if (!existingBook) {
         state.items.push({
@@ -20,19 +20,19 @@ const bookSlice = createSlice({
           title: newBook.title,
           category: newBook.category,
         });
-
-        return state;
       } else {
         return state;
       }
+      return state;
     },
 
-    RemoveBook: (state) => {
+    RemoveBook: (state, action) => {
       const id = action.payload;
-      state.items = state.items.filter((item) => item.id !== id);
-      return state;    },
+      state.items = [...state.items.filter((item) => item.id !== id)];
+      return state;
+    },
   },
 });
 
-export const {AddBook, RemoveBook} = bookSlice.actions;
+export const { AddBook, RemoveBook } = bookSlice.actions;
 export default bookSlice.reducer;

@@ -1,24 +1,38 @@
-export const addBook = (item) => ({
-  type: 'ADD',
-  item,
-});
+import { createSlice } from "@reduxjs/toolkit";
+import { v4 as uuidv4 } from 'uuid';
 
-export const removeBook = (index) => ({
-  type: 'REMOVE',
-  index,
-});
-
-const bookReducer = (state = [], action) => {
-  switch (action.type) {
-    case 'ADD':
-      return [...state, action.item];
-
-    case 'REMOVE':
-      return state.slice(0, action.index).concat(state.slice(action.index + 1));
-
-    default:
-      return state;
-  }
+const initialState = {
+  items: [],
 };
 
-export default bookReducer;
+const bookSlice = createSlice({
+  name: "book",
+  initialState,
+  reducers: {
+    AddBook: (state) => {
+      const newBook = action.payload;
+      const existingBook = state.items.find(
+        (book) => book.title === newBook.title
+      );
+      if (!existingBook) {
+        state.items.push({
+          id: uuidv4(),
+          title: newBook.title,
+          category: newBook.category,
+        });
+
+        return state;
+      } else {
+        return state;
+      }
+    },
+
+    RemoveBook: (state) => {
+      const id = action.payload;
+      state.items = state.items.filter((item) => item.id !== id);
+      return state;    },
+  },
+});
+
+export const {AddBook, RemoveBook} = bookSlice.actions;
+export default bookSlice.reducer;

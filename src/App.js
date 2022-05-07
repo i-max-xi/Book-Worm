@@ -1,20 +1,23 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Books from "./Components/Books";
-import Categories from "./Components/Categories";
-
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Books from './Components/Books';
+import Categories from './Components/Categories';
+import NavBar from './pages/NavBar';
+import './App.css';
+import ErrorPage from './Components/ErrorPage';
 
 class App extends React.Component {
-  render() { 
+  render() {
     return (
       <Router>
-        <Routes>
-          <Route path='/books' element ={Books} />
-          <Route path='/categories' element= {Categories} />
-        </Routes>
+        <NavBar />
+          <Routes>
+            <Route path="/" element={<Books />} />
+            <Route path="/categories" element={<Categories />} />
+            <Route path="*" element={ErrorPage} />
+          </Routes>
       </Router>
     );
   }
 }
- 
 export default App;

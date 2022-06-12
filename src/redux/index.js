@@ -2,9 +2,9 @@ import { combineReducers } from 'redux';
 import bookReducer from './books/books';
 import categoryReducer from './categories/categories';
 
-const reducer = combineReducers({
+const reducers = combineReducers({
   book: bookReducer,
-  category: categoryReducer,
+  // category: categoryReducer,
 });
 
-export default reducer;
+export default reducers;

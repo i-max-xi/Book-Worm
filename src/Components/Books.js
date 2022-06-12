@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react';
+import { useSelector } from 'react-redux';
 import Book from './Book';
 import BookList from './BookList';
 import InputBook from './InputBook';
@@ -21,9 +22,11 @@ class Books extends React.Component {
     };
   
     render(){
+      // const myBooks = useSelector(state => state.books);
       return (
         <Fragment>
         <BookList books={this.state.books} />
+        {/* <BookList books={myBooks} /> */}
         <InputBook />
         </Fragment>
       );

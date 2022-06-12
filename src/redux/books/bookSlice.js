@@ -21,21 +21,25 @@ const bookSlice = createSlice({
   initialState,
   reducers: {
 
-    AddBook: (state, action) => {
-      const newBook = action.payload;
-      const existingBook = state.items.find(
-        (book) => book.title === newBook.title
-      );
-      if (!existingBook) {
-        state.items.push({
-          id: uuidv4(),
-          title: newBook.title,
-          category: newBook.category,
-        });
-      } else {
-        return state;
-      }
-      return state;
+    // AddBook: (state, action) => {
+    //   const newBook = action.payload;
+    //   const existingBook = state.items.find(
+    //     (book) => book.title === newBook.title
+    //   );
+    //   if (!existingBook) {
+    //     state.items.push({
+    //       id: uuidv4(),
+    //       title: newBook.title,
+    //       category: newBook.category,
+    //     });
+    //   } else {
+    //     return state;
+    //   }
+    //   return state;
+    // },
+
+    AddBook(state, action){
+      state.push(action.payload)
     },
 
     RemoveBook: (state, action) => {
@@ -45,6 +49,8 @@ const bookSlice = createSlice({
     },
   },
 });
+
+export const selectAllBooks = (state) => state.book.items;
 
 export const { AddBook, RemoveBook } = bookSlice.actions;
 export default bookSlice.reducer;

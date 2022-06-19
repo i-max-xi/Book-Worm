@@ -1,8 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { v4 as uuidv4 } from "uuid";
+import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 const initialState = {
-  items: [
+  books: [
     {
       id: 1,
       title: "The Hunger Games",
@@ -13,44 +12,37 @@ const initialState = {
       title: "Dune",
       author: "Author2",
     },
-  ],
-};
+  ]}
 
 const bookSlice = createSlice({
-  name: "book",
+  name: "books",
   initialState,
   reducers: {
-
-    // AddBook: (state, action) => {
-    //   const newBook = action.payload;
-    //   const existingBook = state.items.find(
-    //     (book) => book.title === newBook.title
-    //   );
-    //   if (!existingBook) {
-    //     state.items.push({
-    //       id: uuidv4(),
-    //       title: newBook.title,
-    //       category: newBook.category,
-    //     });
-    //   } else {
-    //     return state;
-    //   }
-    //   return state;
-    // },
-
-    AddBook(state, action){
-      state.push(action.payload)
+    
+    AddBook: {
+      reducer(state, action){
+        state.books.push(action.payload)
     },
+      prepare(title, author){
+        return {
+          payload: {
+            id: nanoid(),
+            title,
+            author,
+          }
+        }
+      }
 
+  },
     RemoveBook: (state, action) => {
-      const id = action.payload;
-      state.items = [...state.items.filter((item) => item.id !== id)];
-      return state;
+       state.books = state.books.filter((item)=> item.id != action.payload.id);
     },
   },
 });
 
-export const selectAllBooks = (state) => state.book.items;
 
 export const { AddBook, RemoveBook } = bookSlice.actions;
+
+export const selectAllBooks = (state) => state.book.books;
+
 export default bookSlice.reducer;

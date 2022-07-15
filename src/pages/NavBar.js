@@ -1,14 +1,21 @@
-import { Fragment } from 'react';
-import { Link } from 'react-router-dom';
+// import { Fragment } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import '../Styles/nav.css';
 
-const NavBar = () => (
-  <Fragment>
-    <h2>Bookstore CMS</h2>
+const NavBar = () => {
+  const location = useLocation();
+  const { pathname } = location;
+  const splitLocation = pathname.split("/");
+
+  return (
+  <div className='navbar'>
+    <h2 className='heading'>Bookstore CMS</h2>
     <nav>
-      <Link to="/">Books</Link>
-      <Link to="./categories">Categories</Link>
+      <Link to="/" className={splitLocation[1] === ''? "active" : "inactive"}>BOOKS</Link>
+      <Link to="./categories" className={splitLocation[1] === 'categories'? "active" : "inactive"}>CATEGORIES</Link>
     </nav>
-  </Fragment>
-);
+  </div>
+)
+};
 
 export default NavBar;

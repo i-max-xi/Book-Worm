@@ -1,17 +1,19 @@
 import React, { Fragment, useState } from "react";
-import { useDispatch } from 'react-redux';
-import { nanoid } from '@reduxjs/toolkit';
+import { useDispatch } from "react-redux";
+import { nanoid } from "@reduxjs/toolkit";
 import { AddBook } from "../redux/books/bookSlice";
+import "../Styles/input.css";
 
 const InputBook = () => {
   const dispatch = useDispatch();
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
-  // const [categories, setCategory] = useState([
-  //   "Category1",
-  //   "Category2",
-  //   "Category3",
-  // ]);
+  const [categories, setCategory] = useState([
+    "Category",
+    "Science Fiction",
+    "Action",
+    "Economy",
+  ]);
 
   const onTitleChange = (e) => {
     setTitle(e.target.value);
@@ -28,49 +30,48 @@ const InputBook = () => {
   //Dispatch add action
   const onSaveAdd = (e) => {
     e.preventDefault();
-    if (title && author){
-      dispatch(
-        AddBook(title, author)
-      )
+    if (title && author) {
+      dispatch(AddBook(title, author));
 
-      setTitle('');
-      setAuthor('');
+      setTitle("");
+      setAuthor("");
     }
-  }
-
+  };
 
   return (
-    <Fragment>
+    <div className="inputField">
       <form>
         <label htmlFor="Add-new-book">ADD A NEW BOOK</label>
+        <div className="inputCollection">
         <input
-        placeholder="Enter title..."
-        type="text"
-        value={title}
-        onChange={onTitleChange}
+          placeholder="Book title"
+          type="text"
+          value={title}
+          onChange={onTitleChange}
         />
-        <input
-        placeholder="Enter author..."
-        type="text"
-        value={author}
-        onChange={onAuthorChange}
-        />
+        {/* <input
+          placeholder="Enter author..."
+          type="text"
+          value={author}
+          onChange={onAuthorChange}
+        /> */}
 
-        {/* <select
+        <select
         placeholder="Category"
         onChange={(e) => onCategoryChange(e)}
         >
           {categories.map((category, key) => (
             <option value={{ key }}>{category}</option>
-          ))
-          }
-        </select> */}
-        <button
-        type="submit"
-        onClick={onSaveAdd}
-        >ADD BOOK</button>
+          ))}
+      
+        </select>
+
+        <button type="submit" onClick={onSaveAdd}>
+          ADD BOOK
+        </button>
+        </div>
       </form>
-    </Fragment>
+    </div>
   );
 };
 

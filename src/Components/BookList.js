@@ -19,11 +19,10 @@ const BookList = () => {
    }))
   }
 
-const Posts = () => {
   useEffect( () => {
     dispatch(getBooks())
-  }, [dispatch])
-}
+  }, [])
+
 
   const RenderedBooks = myBooks.map( book => (
     <div key = {book.id} id={book.id} className='booklists'>

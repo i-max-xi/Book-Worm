@@ -1,7 +1,7 @@
 import { createSlice, nanoid, createAsyncThunk } from "@reduxjs/toolkit";
 
 
-const BookAPI = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi';
+const BookAPI = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/1hn4AZy4NAU15YhEKT2D/books';
 
 export const getBooks = createAsyncThunk (
   'books/getBooks',
@@ -29,39 +29,40 @@ const bookSlice = createSlice({
   name: "books",
   initialState,
 
-  reducers: {
-    AddBook: {
-      reducer(state, action){
-        state.books.push(action.payload)
-    },
-      prepare(title, author){
-        return {
-          payload: {
-            id: nanoid(),
-            title,
-            author,
-          }
-        }
-      }
-  },
+  // reducers: {
+  //   AddBook: {
+  //     reducer(state, action){
+  //       state.books.push(action.payload)
+  //   },
+  //     prepare(title, author){
+  //       return {
+  //         payload: {
+  //           id: nanoid(),
+  //           title,
+  //           author,
+  //         }
+  //       }
+  //     }
+  // },
 
-    RemoveBook: (state, action) => {
-       state.books = state.books.filter((item)=> item.id != action.payload.id);
+  //   RemoveBook: (state, action) => {
+  //      state.books = state.books.filter((item)=> item.id != action.payload.id);
+  //   },
+  // },
+  
+  ExtraReducers: {
+    [getBooks.pending]: (state, action) => {
+      state.book.status = 'loading';
     },
-    
-    ExtraReducers: {
-      [getBooks.pending]: (state, action) => {
-        state.status = 'loading';
-      },
-      [getBooks.fulfilled]: (state, {payload}) => {
-        state.books = payload
-        state.status = 'success'
-      },
-      [getBooks.rejected]: () => {
-        state.status = 'failed'
-      }
+    [getBooks.fulfilled]: (state, action) => {
+      state.book.books = action.payload;
+      state.status = 'success';
+      console.log(action.payload)
     },
-  }, 
+    [getBooks.rejected]: () => {
+      state.status = 'failed'
+    }
+  },
 });
 
 

@@ -1,5 +1,4 @@
 * {
-  font-family: Montserrat;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
@@ -23,13 +22,12 @@ nav {
   margin: 0.5rem 4rem;
 }
 
-.inactive, .active {
+.inactive,
+.active {
   font-size: 0.813rem;
   letter-spacing: 1.9px;
-  font-size: 0.813rem;
   margin-left: 2rem;
   text-decoration: none;
-
 }
 
 .inactive {

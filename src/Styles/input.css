@@ -20,7 +20,8 @@ label {
   padding-top: 1.5rem;
 }
 
-input, select{
+input,
+select {
   width: 40%;
   height: 2rem;
   padding: 5px;

@@ -4,14 +4,21 @@
   flex-direction: column;
 }
 
+.inputField hr {
+  margin: 1rem 0 2rem 0;
+  color: #e8e8e8a2;
+}
+
 label {
   font-family: Montserrat-Bold;
   font-size: 1.25rem;
+  color: #888888;
+  letter-spacing: -0.18px;
 }
 
 .inputCollection {
   display: flex;
-  padding-top: 2rem;
+  padding-top: 1.5rem;
   justify-content: space-between;
 }
 
@@ -21,6 +28,7 @@ input, select {
   border-radius: 4px;
   border: solid 1px #e8e8e8;
   background-color: #fff;
+  color: #888888;
 }
 
 .inputCollection button {

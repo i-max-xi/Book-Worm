@@ -37,6 +37,10 @@
   font-size: 1.375rem;
 }
 
+.bookinfo {
+  width: 60%;
+}
+
 .bookinfo button {
   margin: 0.188rem 0.938rem 0.125rem 0;
   font-size: 0.875rem;
@@ -45,28 +49,70 @@
 }
 
 .bookinfo button::after {
-  content: '|';
+  content: "|";
   margin: 0.75rem 1.063rem 0 0.938rem;
   color: #e8e8e8;
+}
+
+.radial {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.percCompleted {
+  margin-left: 1.4rem;
+  color: #121212;
+}
+
+.perc {
+  font-weight: 100;
+  font-size: 2rem;
+}
+
+.completed {
+  opacity: 0.5;
+  font-size: 0.875rem;
+}
+
+.lineSplit {
+  width: 10px;
+  height: 20px;
+  color: red;
 }
 
 .chapter {
   display: flex;
   flex-direction: column;
+  font-family: RobotoSlab;
 }
 
-.chapter::before {
-  content: 'jej';
-  width: 5%;
+.radial::after {
+  content: " ";
+  margin: 0 3rem;
+  width: 1px;
   height: 100%;
-  /* margin: 0.75rem 1.063rem 0 0.938rem; */
-  color: #e8e8e8;
+  background-color: #e8e8e8;
+}
+
+.chapter h3 {
+  opacity: 0.5;
+  font-size: 0.813rem;
+}
+
+.chapter span {
+  font-size: 1rem;
+  letter-spacing: -0.4px;
+  font-weight: 100;
 }
 
 .chapter button {
   background-color: #0290ff;
+  width: max-content;
   padding: 0.5rem 1.2rem;
-  margin: 0.5rem 0;
+  margin: 1.5rem 0;
   border-radius: 3px;
-  color: white;
+  color: rgba(255, 255, 255, 0.692);
+  font-weight: 100;
+  /* letter-spacing: 0.5px; */
 }

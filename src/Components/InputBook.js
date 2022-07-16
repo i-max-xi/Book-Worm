@@ -30,7 +30,7 @@ const InputBook = () => {
   //Dispatch add action
   const onSaveAdd = (e) => {
     e.preventDefault();
-    if (title && author) {
+    if (title && categories) {
       dispatch(AddBook(title, author));
 
       setTitle("");
@@ -40,6 +40,7 @@ const InputBook = () => {
 
   return (
     <div className="inputField">
+      <hr/>
       <form>
         <label htmlFor="Add-new-book">ADD A NEW BOOK</label>
         <div className="inputCollection">

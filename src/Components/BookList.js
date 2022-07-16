@@ -4,6 +4,10 @@ import '../Styles/books.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { RemoveBook, selectAllBooks } from '../redux/books/bookSlice';
 import { getBooks } from '../redux/books/bookSlice';
+import { CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
+
+const percentage = 66;
 
 const BookList = () => {
   const myBooks = useSelector(selectAllBooks);
@@ -30,12 +34,23 @@ const Posts = () => {
         <button type='button' onClick={onSaveDelete}>Remove</button>
         <button type='button'>Edit</button>
       </div>
+
       <div className='radial'>
-        <h1>radial</h1>
+        <div style={{ width: 85, height: 85 }}>
+          <CircularProgressbar value={percentage} />
+        </div>
+        <div className='percCompleted'>
+          <span className="perc">{percentage}% </span>
+          <span className='completed'>Completed</span>
+         {/* {`<Completed class="perc">${percentage}% Completed`} */}
+        </div>
       </div>
+
+      {/* <div className='lineSplit'> <hr /></div> */}
+
       <div className='chapter'>
         <h3>CURRENT CHAPTER</h3>
-        <span>Chapter</span>
+        <span>Chapter 17</span>
         <button>UPDATE PROGRESS</button>
       </div>
     </div>

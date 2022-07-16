@@ -23,9 +23,9 @@ const InputBook = () => {
     setAuthor(e.target.value);
   };
 
-  // const onCategoryChange = (e) => {
-  //   setCategory(e.target.value);
-  // };
+  const onCategoryChange = (e) => {
+    setCategory(e.target.value);
+  };
 
   //Dispatch add action
   const onSaveAdd = (e) => {
@@ -50,12 +50,12 @@ const InputBook = () => {
           value={title}
           onChange={onTitleChange}
         />
-        {/* <input
+        <input
           placeholder="Enter author..."
           type="text"
           value={author}
           onChange={onAuthorChange}
-        /> */}
+        />
 
         <select
         placeholder="Category"
@@ -64,7 +64,6 @@ const InputBook = () => {
           {categories.map((category, key) => (
             <option value={{ key }}>{category}</option>
           ))}
-      
         </select>
 
         <button type="submit" onClick={onSaveAdd}>

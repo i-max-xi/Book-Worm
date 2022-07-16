@@ -42,11 +42,9 @@ const Posts = () => {
         <div className='percCompleted'>
           <span className="perc">{percentage}% </span>
           <span className='completed'>Completed</span>
-         {/* {`<Completed class="perc">${percentage}% Completed`} */}
         </div>
       </div>
 
-      {/* <div className='lineSplit'> <hr /></div> */}
 
       <div className='chapter'>
         <h3>CURRENT CHAPTER</h3>

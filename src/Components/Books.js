@@ -6,7 +6,6 @@ import '../Styles/books.css'
 const Books = () => {
       return (
         <div className='fullPage'>
-            {/* <BookList books={this.state.books} /> */}
             <BookList />
             <InputBook />
         </div>

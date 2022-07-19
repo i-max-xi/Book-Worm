@@ -1,7 +1,7 @@
 import { createSlice, nanoid, createAsyncThunk } from "@reduxjs/toolkit";
 
 
-const BookAPI = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi';
+const BookAPI = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/1hn4AZy4NAU15YhEKT2D/books/';
 
 export const getBooks = createAsyncThunk (
   'books/getBooks',
@@ -9,6 +9,7 @@ export const getBooks = createAsyncThunk (
     return fetch(BookAPI).then((res) => res.json())
   }
 )
+
 const initialState = {
   books: [
     {
@@ -48,20 +49,20 @@ const bookSlice = createSlice({
     RemoveBook: (state, action) => {
        state.books = state.books.filter((item)=> item.id != action.payload.id);
     },
-    
-    ExtraReducers: {
-      [getBooks.pending]: (state, action) => {
-        state.status = 'loading';
-      },
-      [getBooks.fulfilled]: (state, {payload}) => {
-        state.books = payload
-        state.status = 'success'
-      },
-      [getBooks.rejected]: () => {
-        state.status = 'failed'
-      }
+  },
+  
+  extraReducers: {
+    [getBooks.pending]: (state, action) => {
+      state.status = 'loading';
     },
-  }, 
+    [getBooks.fulfilled]: (state, action) => {
+      state.book.books = action.payload;
+      state.status = 'success';
+    },
+    [getBooks.rejected]: (state, action) => {
+      state.status = 'failed';
+    }
+  },
 });
 
 

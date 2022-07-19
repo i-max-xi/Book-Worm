@@ -6,8 +6,7 @@ import NavBar from './pages/NavBar';
 import './App.css';
 import ErrorPage from './Components/ErrorPage';
 
-class App extends React.Component {
-  render() {
+const App = () => {
     return (
       <Router>
         <NavBar />
@@ -18,6 +17,5 @@ class App extends React.Component {
           </Routes>
       </Router>
     );
-  }
 }
 export default App;

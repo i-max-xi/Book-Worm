@@ -7,7 +7,6 @@
 
 .booklists {
   display: flex;
-  flex-basis: auto;
   justify-content: space-between;
   margin: 2.313rem 6.25rem 0;
   padding: 2rem 9.188rem 1.625rem 1.688rem;
@@ -31,7 +30,6 @@
 
 .category {
   opacity: 0.5;
-  padding-left: 10px;
 }
 
 button {
@@ -57,8 +55,6 @@ button {
 
 .radial {
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .radial:hover {
@@ -74,17 +70,8 @@ button {
   background-color: #e8e8e8;
 }
 
-.percCompleted {
-  margin-left: 1.4rem;
-  color: #121212;
-}
-
-.perc {
-  font-weight: 100;
-  font-size: 2rem;
-}
-
 .completed {
+  color: #121212;
   opacity: 0.5;
   font-size: 0.875rem;
 }
@@ -125,4 +112,66 @@ button {
   color: #0290ff;
   background-color: rgba(255, 255, 255, 0.692);
   transition: all 0.2s ease-in-out;
+}
+
+@media (max-width:900px){
+  .booklists {
+    margin: 1rem ;
+    padding: 1rem;
+  }
+
+  .bookinfo {
+    width: 45%;
+  }
+
+  .title {
+    margin: 0;
+  }
+
+  .group-buttons {
+    display: flex;
+  }
+
+  .radial {
+    width: 15%;
+    margin-left: 1rem;
+    padding: 0;
+  }
+
+  .radial-actual {
+    flex-direction: column;
+  }
+
+  .radial::after {
+    width: 1px;
+  }
+
+  .completed {
+    position: relative;
+    top: -30px;
+    font-size: 0.8rem;
+  }
+
+  .chapter {
+    width: 20%;
+  }
+
+  .chapter span {
+    font-size: 0.8rem;
+  }
+
+  .chapter button {
+    padding: 0.2rem;
+    font-size: 0.6rem;
+  }
+
+  .title {
+    /* margin: 0.188rem 20.188rem 0 0; */
+    font-size: 1rem;
+  }
+
+  .author {
+    /* margin: 0.25rem 0 0; */
+    font-size: 0.875rem;
+  }
 }

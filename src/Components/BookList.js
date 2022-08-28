@@ -30,17 +30,18 @@ const BookList = () => {
         <h5 className='category'>{book.category}</h5> 
         <h1 className='title'>{book.title}</h1> 
         <h3 className='author'>{book.author}</h3>
-        <button type='button'>Comments</button>
-        <button type='button' onClick={() => onSaveDelete(book.id)}>Remove</button>
-        <button type='button'>Edit</button>
+        <div className='group-buttons'>
+          <button type='button'>&#128172;</button>
+          <button type='button' onClick={() => onSaveDelete(book.id)}>🗑</button>
+          <button type='button'>&#128393;</button>
+        </div>
       </div>
 
       <div className='radial'>
-        <div style={{ width: 85, height: 85 }}>
-          <CircularProgressbar value={book.percentage ? book.percentage : 1} />
-        </div>
-        <div className='percCompleted'>
-          <span className="perc">{book.percentage ? book.percentage : 1}% </span>
+        <div className='radial-actual'>
+          <div style={{ width: 85, height: 85 }}>
+            <CircularProgressbar value={book.percentage ? book.percentage : 1} text={book.percentage ? `${book.percentage}%` : '1%'}/>
+          </div>
           <span className='completed'>Completed</span>
         </div>
       </div>

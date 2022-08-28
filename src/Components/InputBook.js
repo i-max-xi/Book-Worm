@@ -23,18 +23,25 @@ const InputBook = () => {
     setAuthor(e.target.value);
   };
 
-  // const onCategoryChange = (e) => {
-  //   setCategory(e.target.value);
-  // };
+  const onChangeCategory = (e) => {
+    console.log(e.target.value);
+    setCategory(e.target.value);
+  }
 
   //Dispatch add action
   const onSaveAdd = (e) => {
     e.preventDefault();
     if (title && categories) {
-      dispatch(AddBook(title, author));
+      dispatch(AddBook(title, author, categories));
 
       setTitle("");
       setAuthor("");
+      setCategory([
+        "Category",
+        "Science Fiction",
+        "Action",
+        "Economy",
+      ]);
     }
   };
 
@@ -59,6 +66,7 @@ const InputBook = () => {
 
         <select
         placeholder="Category"
+        onChange={() => onChangeCategory()}
         >
           {categories.map((category, key) => (
             <option value={{ key }}>{category}</option>

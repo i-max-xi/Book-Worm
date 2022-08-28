@@ -15,12 +15,18 @@ const initialState = {
     {
       id: 1,
       title: "The Hunger Games",
-      author: "Author1",
+      author: "Suzanne Collins",
+      percentage: 69,
+      category: "Action",
+      chapter: 17,
     },
     {
       id: 2,
       title: "Dune",
-      author: "Author2",
+      author: "Frank Herbert",
+      category: "Science Fiction",
+      percentage: 20,
+      chapter: 4,
     },
   ],
   status: null

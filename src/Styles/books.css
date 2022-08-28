@@ -29,6 +29,15 @@
   font-size: 1.375rem;
 }
 
+.category {
+  opacity: 0.5;
+  padding-left: 10px;
+}
+
+button {
+  cursor: pointer;
+}
+
 .bookinfo {
   width: 65%;
 }
@@ -50,6 +59,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.radial:hover {
+  transform: scale(1.1,1.1);
+  transition: all 0.2s ease-in-out;
+}
+
+.radial::after {
+  content: " ";
+  margin: 0 2rem;
+  width: 1px;
+  height: 100%;
+  background-color: #e8e8e8;
 }
 
 .percCompleted {
@@ -78,14 +100,6 @@
   flex-direction: column;
 }
 
-.radial::after {
-  content: " ";
-  margin: 0 2rem;
-  width: 1px;
-  height: 100%;
-  background-color: #e8e8e8;
-}
-
 .chapter h3 {
   opacity: 0.5;
   font-size: 0.813rem;
@@ -105,4 +119,10 @@
   border-radius: 3px;
   color: rgba(255, 255, 255, 0.692);
   font-weight: 100;
+}
+
+.chapter button:hover {
+  color: #0290ff;
+  background-color: rgba(255, 255, 255, 0.692);
+  transition: all 0.2s ease-in-out;
 }

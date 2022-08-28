@@ -124,10 +124,6 @@ button {
     width: 45%;
   }
 
-  .title {
-    margin: 0;
-  }
-
   .group-buttons {
     display: flex;
   }
@@ -168,6 +164,7 @@ button {
   .title {
     /* margin: 0.188rem 20.188rem 0 0; */
     font-size: 1rem;
+    margin: 0;
   }
 
   .author {

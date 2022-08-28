@@ -7,15 +7,15 @@ import { getBooks } from '../redux/books/bookSlice';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
-const percentage = 66;
 
 const BookList = () => {
   const myBooks = useSelector(selectAllBooks);
   const dispatch = useDispatch();
 
-  const onSaveDelete = (e) => {    
+  const onSaveDelete = (delid) => {    
+    console.log(delid);
    dispatch(RemoveBook({
-    id: e.target.parentElement.id
+    id: delid
    }))
   }
 
@@ -27,19 +27,21 @@ const BookList = () => {
   const RenderedBooks = myBooks.map( book => (
     <div key = {book.id} id={book.id} className='booklists'>
       <div className='bookinfo'>
+        <h5 className='category'>{book.category}</h5> 
         <h1 className='title'>{book.title}</h1> 
         <h3 className='author'>{book.author}</h3>
-        <button type='button'>Comments</button>
-        <button type='button' onClick={onSaveDelete}>Remove</button>
-        <button type='button'>Edit</button>
+        <div className='group-buttons'>
+          <button type='button'>&#128172;</button>
+          <button type='button' onClick={() => onSaveDelete(book.id)}>🗑</button>
+          <button type='button'>&#128393;</button>
+        </div>
       </div>
 
       <div className='radial'>
-        <div style={{ width: 85, height: 85 }}>
-          <CircularProgressbar value={percentage} />
-        </div>
-        <div className='percCompleted'>
-          <span className="perc">{percentage}% </span>
+        <div className='radial-actual'>
+          <div style={{ width: 85, height: 85 }}>
+            <CircularProgressbar value={book.percentage ? book.percentage : 1} text={book.percentage ? `${book.percentage}%` : '1%'}/>
+          </div>
           <span className='completed'>Completed</span>
         </div>
       </div>
@@ -47,7 +49,7 @@ const BookList = () => {
 
       <div className='chapter'>
         <h3>CURRENT CHAPTER</h3>
-        <span>Chapter 17</span>
+        <span>Chapter {book.chapter ? book.chapter : 1}</span>
         <button>UPDATE PROGRESS</button>
       </div>
     </div>

@@ -38,3 +38,23 @@ nav {
 .active {
   color: black;
 }
+
+@media (max-width: 900px) {
+  .navbar {
+    padding: 1rem;
+    width: 100%;
+  }
+
+  .heading {
+    font-size: 1.5rem;
+  }
+
+  nav {
+    margin: 0.2rem;
+  }
+
+  .inactive,
+  .active {
+    font-size: 0.7rem;
+  }
+}

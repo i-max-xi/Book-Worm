@@ -1,34 +1,16 @@
 import React, { Fragment, useState } from 'react';
-import Book from './Book';
 import BookList from './BookList';
 import InputBook from './InputBook';
+import '../Styles/books.css'
 
-class Books extends React.Component {
-
-    state = {
-      books: [
-        {
-          id: 1,
-          title: "The Hunger Games",
-          author: "Author1",
-        },
-        {
-          id: 2,
-          title: "Dune",
-          author: "Author2",
-        },
-      ],
-    };
-  
-    render(){
+const Books = () => {
       return (
-        <Fragment>
-        <BookList books={this.state.books} />
-        <InputBook />
-        </Fragment>
+        <div className='fullPage'>
+            <BookList />
+            <InputBook />
+        </div>
       );
     }
-    
-}
+
 
 export default Books;

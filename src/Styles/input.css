@@ -50,7 +50,7 @@ select {
   transition: all 0.2s ease-in-out;
 }
 
-@media (max-width:900px){
+@media (max-width: 900px) {
   .inputField {
     margin: 1.5rem;
   }
@@ -59,7 +59,8 @@ select {
     flex-direction: column;
   }
 
-  input, select {
+  input,
+  select {
     width: 90%;
     margin-right: 0;
     margin-top: 1rem;

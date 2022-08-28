@@ -41,12 +41,13 @@ const bookSlice = createSlice({
       reducer(state, action){
         state.books.push(action.payload)
     },
-      prepare(title, author){
+      prepare(title, author, category){
         return {
           payload: {
             id: nanoid(),
             title,
             author,
+            category,
           }
         }
       }

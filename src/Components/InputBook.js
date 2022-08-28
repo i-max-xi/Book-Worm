@@ -8,12 +8,7 @@ const InputBook = () => {
   const dispatch = useDispatch();
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
-  const [categories, setCategory] = useState([
-    "Category",
-    "Science Fiction",
-    "Action",
-    "Economy",
-  ]);
+  const [categories, setCategory] = useState("");
 
   const onTitleChange = (e) => {
     setTitle(e.target.value);
@@ -24,24 +19,19 @@ const InputBook = () => {
   };
 
   const onChangeCategory = (e) => {
-    console.log(e.target.value);
     setCategory(e.target.value);
   }
 
   //Dispatch add action
   const onSaveAdd = (e) => {
     e.preventDefault();
-    if (title && categories) {
+    if (title && author) {
       dispatch(AddBook(title, author, categories));
 
       setTitle("");
       setAuthor("");
-      setCategory([
-        "Category",
-        "Science Fiction",
-        "Action",
-        "Economy",
-      ]);
+      setCategory("");
+      
     }
   };
 
@@ -65,12 +55,16 @@ const InputBook = () => {
         />
 
         <select
-        placeholder="Category"
-        onChange={() => onChangeCategory()}
+        value={categories}
+        onChange={onChangeCategory}
         >
-          {categories.map((category, key) => (
+          <option value="" disabled={true}>Category</option>
+          <option value="Action">Action</option>
+          <option value="Science Fiction">Science Fiction</option>
+          <option value="Economy">Economy</option>
+          {/* {categories.map((category, key) => (
             <option value={{ key }}>{category}</option>
-          ))}
+          ))} */}
         </select>
 
         <button type="submit" onClick={onSaveAdd}>

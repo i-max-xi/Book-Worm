@@ -3,9 +3,13 @@
 This project builds a bookstore app using React
 
 ## Built With:
-- React (SPA)
-- JSX
-- CSS
+- React
+- Redux
+- REST API
+- [Bookstore API](https://www.notion.so/Bookstore-API-51ea269061f849118c65c0a53e88a739)
+
+## See Live
+[Click Here](https://the-bookworm.netlify.app/) to see project
 
 
 ### Cloning

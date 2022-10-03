@@ -56,7 +56,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgement:
    - Big thanks to Microverse.
-   - Hat tip to W3css and every website that trained me to code.
+   - Hat tip to W3css and every website that made coding easy for me.
    - etc.
 
 ## 📝 License
